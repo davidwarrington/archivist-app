@@ -1,0 +1,9 @@
+.git
+.node-version
+.react-router
+commitlint.config.ts
+dist
+eslint.config.ts
+node_modules
+prettier.config.ts
+README.md
