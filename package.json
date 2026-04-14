@@ -22,6 +22,9 @@
     "vite-plugin-devtools-json": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@davidwarrington/commitlint-config": "^2.1.12",
     "@davidwarrington/eslint-config": "^2.7.0",
     "@davidwarrington/prettier-config": "^2.2.6",
     "@eslint-react/eslint-plugin": "^4.2.3",
