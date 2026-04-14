@@ -10,7 +10,8 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "start": "react-router-serve ./dist/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "tsc",
+    "typegen": "react-router typegen"
   },
   "dependencies": {
     "@react-router/node": "7.14.1",

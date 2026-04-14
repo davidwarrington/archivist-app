@@ -1,4 +1,5 @@
 .git
+.github
 .node-version
 .react-router
 commitlint.config.ts
