@@ -1,2 +1,5 @@
 onlyBuiltDependencies:
   - esbuild
+
+patchedDependencies:
+  vite-plugin-devtools-json: patches/vite-plugin-devtools-json.patch
