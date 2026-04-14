@@ -1,6 +1,9 @@
+*.sqlite
+.env
 .git
 .github
 .node-version
+.prisma
 .react-router
 commitlint.config.ts
 dist

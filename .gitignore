@@ -1,4 +1,6 @@
+*.sqlite
 .env
+.prisma
 .react-router
 dist
 node_modules
