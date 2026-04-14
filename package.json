@@ -6,6 +6,9 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
     "start": "react-router-serve ./dist/server/index.js",
     "typecheck": "react-router typegen && tsc"
   },
@@ -19,11 +22,25 @@
     "vite-plugin-devtools-json": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
+    "@davidwarrington/commitlint-config": "^2.1.12",
+    "@davidwarrington/eslint-config": "^2.7.0",
+    "@davidwarrington/prettier-config": "^2.2.6",
+    "@eslint-react/eslint-plugin": "^4.2.3",
     "@react-router/dev": "7.14.1",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "eslint": "^10.2.0",
+    "eslint-config-flat-gitignore": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.2",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "^8.0.3"
