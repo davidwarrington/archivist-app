@@ -6,21 +6,25 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint .",
+    "format": "prisma format && prettier --write .",
+    "format:check": "prisma format --check && prettier --check .",
+    "lint": "prisma validate && eslint .",
     "start": "react-router-serve ./dist/server/index.js",
     "typecheck": "tsc",
-    "typegen": "react-router typegen"
+    "typegen": "prisma generate && react-router typegen"
   },
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.7.0",
+    "@prisma/client": "^7.7.0",
     "@react-router/node": "7.14.1",
     "@react-router/serve": "7.14.1",
+    "dotenv": "^17.4.2",
     "isbot": "^5.1.36",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "7.14.1",
-    "vite-plugin-devtools-json": "^1.0.0"
+    "vite-plugin-devtools-json": "^1.0.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
@@ -31,6 +35,7 @@
     "@eslint-react/eslint-plugin": "^4.2.3",
     "@react-router/dev": "7.14.1",
     "@tailwindcss/vite": "^4.2.2",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
@@ -42,6 +47,7 @@
     "globals": "^17.5.0",
     "prettier": "^3.8.2",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "prisma": "^7.7.0",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "^8.0.3"
