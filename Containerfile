@@ -22,6 +22,7 @@ COPY . /app/
 COPY --from=development-dependencies-env /app/node_modules /app/node_modules/
 WORKDIR /app
 RUN pnpm prisma migrate deploy
+RUN pnpm prisma generate
 RUN pnpm build
 
 FROM base AS runner
