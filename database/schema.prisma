@@ -17,8 +17,9 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
-  sessions Session[]
-  accounts Account[]
+  sessions  Session[]
+  accounts  Account[]
+  documents Document[]
 
   @@map("users")
 }
@@ -74,4 +75,49 @@ model Verification {
 
   @@index([identifier])
   @@map("verifications")
+}
+
+model Document {
+  id               String  @id @default(cuid())
+  filename         String  @unique
+  originalFilename String  @map(name: "original_filename")
+  originalSize     Int     @map(name: "original_size")
+  originalChecksum String  @unique @map(name: "original_checksum")
+  content          String? @map(name: "content")
+  mimeType         String  @map(name: "mime_type")
+
+  uploadedById String? @map(name: "uploaded_by_id")
+
+  createdAt DateTime  @default(now()) @map(name: "created_at")
+  updatedAt DateTime  @updatedAt @map(name: "updated_at")
+  deletedAt DateTime? @map(name: "deleted_at")
+
+  tags       DocumentTag[]
+  uploadedBy User?         @relation(fields: [uploadedById], references: [id])
+
+  @@index([content], map: "text_search_index")
+  @@map("documents")
+}
+
+model Tag {
+  id     String  @id @default(uuid())
+  name   String  @unique
+  colour String?
+
+  documents DocumentTag[]
+
+  @@map("tags")
+}
+
+model DocumentTag {
+  documentId String @map(name: "document_id")
+  tagId      String @map(name: "tag_id")
+
+  assignedAt DateTime @default(now()) @map(name: "assigned_at")
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+  tag      Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([documentId, tagId])
+  @@map("document_tag")
 }
