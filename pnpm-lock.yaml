@@ -13,6 +13,12 @@ importers:
 
   .:
     dependencies:
+      '@conform-to/react':
+        specifier: ^1.19.1
+        version: 1.19.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@conform-to/zod':
+        specifier: ^1.19.1
+        version: 1.19.1(zod@4.3.6)
       '@prisma/adapter-better-sqlite3':
         specifier: ^7.7.0
         version: 7.7.0
@@ -399,6 +405,20 @@ packages:
   '@commitlint/types@20.5.0':
     resolution: {integrity: sha512-ZJoS8oSq2CAZEpc/YI9SulLrdiIyXeHb/OGqGrkUP6Q7YV+0ouNAa7GjqRdXeQPncHQIDz/jbCTlHScvYvO/gA==}
     engines: {node: '>=v18'}
+
+  '@conform-to/dom@1.19.1':
+    resolution: {integrity: sha512-h4/T04zgASuiHMVEiXiyQA4jIW9zhpVFbp0HrWCQUDBxd8Zc1JbTarR7cuJyzkmqshC4tdm4VKIHguLp+7AYCw==}
+
+  '@conform-to/react@1.19.1':
+    resolution: {integrity: sha512-RrSfpy3B7bn1RoXCztlmQYMs113AWcvtqAluDqAx4yVbbVB+EcHWc3Ze/EXJhbtFDmljT2nMtcx/VY8f2RPGFg==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+
+  '@conform-to/zod@1.19.1':
+    resolution: {integrity: sha512-S/C+Byhk87RdutjCuxhKcDf9lrmTx0V1OrtZPt5zrVG3RqcXVZz3NvLLZ7pNqdSg5DHGvuzPuotGfmPVu936ow==}
+    peerDependencies:
+      zod: ^3.21.0 || ^4.0.0
 
   '@conventional-changelog/git-client@2.7.0':
     resolution: {integrity: sha512-j7A8/LBEQ+3rugMzPXoKYzyUPpw/0CBQCyvtTR7Lmu4olG4yRC/Tfkq79Mr3yuPs0SUitlO2HwGP3gitMJnRFw==}
@@ -4128,6 +4148,19 @@ snapshots:
     dependencies:
       conventional-commits-parser: 6.4.0
       picocolors: 1.1.1
+
+  '@conform-to/dom@1.19.1': {}
+
+  '@conform-to/react@1.19.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+    dependencies:
+      '@conform-to/dom': 1.19.1
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+
+  '@conform-to/zod@1.19.1(zod@4.3.6)':
+    dependencies:
+      '@conform-to/dom': 1.19.1
+      zod: 4.3.6
 
   '@conventional-changelog/git-client@2.7.0(conventional-commits-parser@6.4.0)':
     dependencies:
