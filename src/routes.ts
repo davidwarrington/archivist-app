@@ -8,5 +8,5 @@ export default [
   ...authRoutes,
   ...coreRoutes,
   ...documentsRoutes,
-  ...userRoutes,
+  userRoutes,
 ] satisfies RouteConfig;
