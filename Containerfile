@@ -1,6 +1,10 @@
 FROM node:25-alpine AS base
 ARG CI=true
+ARG BETTER_AUTH_SECRET
+ARG BETTER_AUTH_URL
 ARG DATABASE_FILENAME
+ENV BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+ENV BETTER_AUTH_URL=${BETTER_AUTH_URL}
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN npm install -g pnpm
@@ -29,6 +33,6 @@ FROM base AS runner
 COPY ./package.json pnpm-lock.yaml pnpm-workspace.yaml /app/
 COPY --from=production-dependencies-env /app/node_modules /app/node_modules/
 COPY --from=build-env /app/dist /app/dist/
-COPY --from=build-env /app/${DATABASE_FILENAME} /app/${DATABASE_FILENAME}/
+COPY --from=build-env /app/${DATABASE_FILENAME} /app/
 WORKDIR /app
 CMD ["pnpm", "start"]
