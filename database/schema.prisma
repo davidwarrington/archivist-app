@@ -77,6 +77,35 @@ model Verification {
   @@map("verifications")
 }
 
+model ApiKey {
+  id                  String    @id @unique
+  configId            String    @map("config_id")
+  name                String?
+  start               String?
+  prefix              String?
+  key                 String
+  refillInterval      Int?      @map("refill_interval")
+  refillAmount        Int?      @map("refill_amount")
+  lastRefillAt        DateTime? @map("last_refill_at")
+  enabled             Boolean?
+  rateLimitEnabled    Boolean?  @map("rate_limit_enabled")
+  rateLimitTimeWindow Int?      @map("rate_limit_time_window")
+  rateLimitMax        Int?      @map("rate_limit_max")
+  requestCount        Int?      @map("rate_limit_count")
+  remaining           Int?
+  lastRequest         DateTime? @map("last_request")
+  expiresAt           DateTime? @map("expires_at")
+  permissions         String?
+  metadata            String?
+
+  referenceId String @map("reference_id")
+
+  createdAt DateTime @map("created_at")
+  updatedAt DateTime @map("updated_at")
+
+  @@map("api_keys")
+}
+
 model Document {
   id               String  @id @default(cuid())
   filename         String  @unique
