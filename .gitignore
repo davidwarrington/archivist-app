@@ -1,5 +1,7 @@
 *.sqlite
 .env
+.env.*
+!.env.example
 .prisma
 .react-router
 dist
